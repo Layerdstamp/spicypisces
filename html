@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Gallery Site</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <!-- Animated background target -->
+  <div id="bg"></div>
+
+  <header class="site-header">
+    <div class="brand">My Gallery</div>
+    <nav class="nav">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <h1>Photo Gallery</h1>
+      <p>Clean layout. Fast load. Animated background.</p>
+      <div class="actions">
+        <a class="btn" href="gallery.html">Open Gallery</a>
+        <a class="btn ghost" href="about.html">About</a>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card">
+        <h2>Simple</h2>
+        <p>Just HTML + CSS + CDN background.</p>
+      </div>
+      <div class="card">
+        <h2>Fast</h2>
+        <p>Upload images, update the grid, done.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Vanta (Waves) via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
