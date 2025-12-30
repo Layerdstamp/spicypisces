@@ -23,7 +23,7 @@ function loadGallery(category) {
 
     // Load each image
     images.forEach((imageName) => {
-        const imagePath = categoryConfig.path + imageName;
+        const imagePath = categoryConfig.path + encodeURIComponent(imageName);
         
         // Create image figure element
         const figure = document.createElement('figure');
