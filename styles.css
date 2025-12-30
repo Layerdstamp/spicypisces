@@ -1,0 +1,545 @@
+/* ============================================
+   GLOBAL STYLES & RESET
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2d2d2d;
+    line-height: 1.6;
+}
+
+/* ============================================
+   BACKGROUND LAYERS FOR HOME PAGE
+   ============================================ */
+
+body.home {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Velvet base layer - rich red gradient background */
+.bg-velvet {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #fee8e8 0%, #f5d5d5 50%, #ead4d0 100%);
+    z-index: 1;
+}
+
+/* Lace pattern overlay - subtle red texture */
+.bg-lace {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(220, 50, 50, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(200, 40, 40, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(180, 20, 20, 0.06) 0%, transparent 50%);
+    z-index: 2;
+}
+
+/* Vignette effect - darkens edges */
+.bg-vignette {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+    z-index: 3;
+}
+
+/* ============================================
+   HOME PAGE LAYOUT
+   ============================================ */
+
+.home-wrap {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    gap: 3rem;
+}
+
+.home-header {
+    text-align: center;
+    margin-top: 2rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.home-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #2d2d2d;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.home-sub {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #666;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
+}
+
+/* ============================================
+   CARD STACK & CATEGORY CARDS
+   ============================================ */
+
+.card-stack {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 1rem;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.cat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                filter 0.3s ease;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(200, 40, 40, 0.12);
+}
+
+.cat-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(200, 40, 40, 0.2);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.cat-card:active {
+    transform: translateY(-5px) scale(1.01);
+}
+
+/* Bubble image container */
+.bubble {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 30px rgba(200, 40, 40, 0.18),
+                inset 0 0 20px rgba(200, 20, 20, 0.08);
+    background: linear-gradient(135deg, #fee8e8, #f5d5d5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.cat-card:hover .bubble {
+    box-shadow: 0 16px 40px rgba(200, 40, 40, 0.25),
+                inset 0 0 20px rgba(200, 20, 20, 0.08);
+    border-color: rgba(220, 50, 50, 0.95);
+}
+
+.bubble img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.bubble picture {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bubble picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Category text section */
+.cat-text {
+    text-align: center;
+}
+
+.cat-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2d2d2d;
+    text-transform: lowercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.cat-desc {
+    font-size: 0.95rem;
+    color: #888;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    font-style: italic;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.home-footer {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+.tiny {
+    font-size: 0.85rem;
+    color: #999;
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+}
+
+/* ============================================
+   GALLERY PAGES
+   ============================================ */
+
+body.gallery-page {
+    background: linear-gradient(135deg, #fef5f5 0%, #fde8e8 100%);
+}
+
+.gallery-header {
+    background-color: rgba(140, 30, 30, 0.98);
+    color: #fff;
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(140, 30, 30, 0.15);
+    border-bottom: 3px solid rgba(220, 50, 50, 0.4);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.back-btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: inline-block;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.back-btn:active {
+    background-color: rgba(255, 100, 100, 0.2);
+}
+
+.back-btn:hover {
+    color: #ffb6c1;
+}
+
+.gallery-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: lowercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+.gallery-main {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    min-height: calc(100vh - 80px);
+}
+
+/* Photo Gallery Grid - 2 columns on desktop, 1 on mobile */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(200, 40, 40, 0.15);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: fadeInImage 0.6s ease-out forwards;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.photo-item:active img {
+    transform: scale(1.02);
+}
+
+@supports ((-webkit-touch-callout: none)) {
+    /* iOS specific styles */
+    .photo-item {
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    
+    .photo-item img {
+        -webkit-user-drag: none;
+        user-select: none;
+    }
+}
+
+/* Stagger animation for images */
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.photo-item:nth-child(1) { animation-delay: 0s; }
+.photo-item:nth-child(2) { animation-delay: 0.1s; }
+.photo-item:nth-child(3) { animation-delay: 0.2s; }
+.photo-item:nth-child(4) { animation-delay: 0.3s; }
+.photo-item:nth-child(5) { animation-delay: 0.4s; }
+.photo-item:nth-child(n+6) { animation-delay: 0.5s; }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* HOME PAGE MOBILE */
+    .home-wrap {
+        padding: 1rem;
+        gap: 2rem;
+    }
+
+    .card-stack {
+        gap: 1.5rem;
+        grid-template-columns: 1fr;
+    }
+
+    .cat-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .bubble {
+        width: 160px;
+        height: 160px;
+        border-width: 6px;
+    }
+
+    .cat-name {
+        font-size: 1.5rem;
+    }
+
+    /* GALLERY PAGE MOBILE */
+    .gallery-main {
+        padding: 1rem 0.75rem;
+    }
+
+    .photo-gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .photo-item {
+        max-height: 400px;
+    }
+
+    .gallery-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .header-content {
+        gap: 1rem;
+    }
+
+    .back-btn {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .gallery-header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* EXTRA SMALL SCREENS */
+    .home-title {
+        font-size: 2rem;
+    }
+
+    .home-sub {
+        font-size: 0.95rem;
+    }
+
+    .card-stack {
+        gap: 1.2rem;
+    }
+
+    .cat-card {
+        padding: 1.2rem 0.8rem;
+        gap: 1rem;
+    }
+
+    .bubble {
+        width: 140px;
+        height: 140px;
+        border-width: 5px;
+    }
+
+    .cat-name {
+        font-size: 1.3rem;
+    }
+
+    .cat-desc {
+        font-size: 0.9rem;
+    }
+
+    .gallery-header {
+        padding: 0.6rem 0.75rem;
+    }
+
+    .header-content {
+        gap: 0.75rem;
+    }
+
+    .gallery-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .photo-gallery {
+        gap: 0.8rem;
+    }
+
+    .photo-item {
+        border-radius: 8px;
+    }
+}
+
+/* Landscape orientation optimization */
+@media (max-height: 600px) and (orientation: landscape) {
+    .home-wrap {
+        min-height: auto;
+        padding: 1rem;
+    }
+
+    .gallery-main {
+        min-height: auto;
+    }
+}
+
+/* iPad and tablet optimization */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .photo-gallery {
+        gap: 1.2rem;
+    }
+
+    .home-wrap {
+        padding: 1.5rem;
+    }
+}
