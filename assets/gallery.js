@@ -75,7 +75,7 @@ function loadGallery(category) {
     // Log loading complete
     setTimeout(function() {
         if (imageCount === 0) {
-            console.log(`No images found in ${category} folder. Upload images as: ${imageName}.jpg, ${imageName}.png, or ${imageName}.heic`);
+            console.log(`No images found in ${category} folder. Upload images as: cover.jpg, cover.png, or cover.heic`);
         } else {
             console.log(`Loaded ${imageCount} images in ${category} gallery`);
         }
