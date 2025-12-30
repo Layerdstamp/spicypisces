@@ -469,6 +469,10 @@ body.gallery-page {
 
 @media (max-width: 480px) {
     /* EXTRA SMALL SCREENS */
+    body.home {
+        overflow: auto;
+    }
+
     .home-title {
         font-size: 2rem;
     }
@@ -518,6 +522,7 @@ body.gallery-page {
 
     .photo-item {
         border-radius: 8px;
+        border: 2px solid rgba(200, 40, 40, 0.6);
     }
 }
 
