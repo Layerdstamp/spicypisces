@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Spicy Pisces Gallery</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="home">
+  <!-- Background layers (stock images + tint) -->
+  <div class="bg">
+    <div class="bg-velvet"></div>
+    <div class="bg-lace"></div>
+    <div class="bg-vignette"></div>
+  </div>
+
+  <main class="home-wrap">
+    <header class="home-header">
+      <h1 class="home-title">Spicy Pisces</h1>
+      <p class="home-sub">Pick a vibe.</p>
+    </header>
+
+    <section class="card-stack">
+      <a class="cat-card" href="cute.html">
+        <div class="bubble">
+          <picture>
+            <source srcset="photos/cute/cover.webp" type="image/webp">
+            <source srcset="photos/cute/cover.heic" type="image/heic">
+            <source srcset="photos/cute/cover.png" type="image/png">
+            <img src="photos/cute/cover.jpg" alt="Cute cover" loading="lazy" />
+          </picture>
+        </div>
+        <div class="cat-text">
+          <div class="cat-name">cute</div>
+          <div class="cat-desc">whats not to love</div>
+        </div>
+      </a>
+
+      <a class="cat-card" href="fancy.html">
+        <div class="bubble">
+          <picture>
+            <source srcset="photos/fancy/cover.webp" type="image/webp">
+            <source srcset="photos/fancy/cover.heic" type="image/heic">
+            <source srcset="photos/fancy/cover.png" type="image/png">
+            <img src="photos/fancy/cover.jpg" alt="Fancy cover" loading="lazy" />
+          </picture>
+        </div>
+        <div class="cat-text">
+          <div class="cat-name">fancy</div>
+          <div class="cat-desc">i rule the world</div>
+        </div>
+      </a>
+
+      <a class="cat-card" href="spicy.html">
+        <div class="bubble">
+          <picture>
+            <source srcset="photos/spicy/cover.webp" type="image/webp">
+            <source srcset="photos/spicy/cover.heic" type="image/heic">
+            <source srcset="photos/spicy/cover.png" type="image/png">
+            <img src="photos/spicy/cover.jpg" alt="Spicy cover" loading="lazy" />
+          </picture>
+        </div>
+        <div class="cat-text">
+          <div class="cat-name">spicy</div>
+          <div class="cat-desc">click me if you dare</div>
+        </div>
+      </a>
+    </section>
+
+    <footer class="home-footer">
+      <div class="tiny">Upload photos into /photos/cute, /photos/fancy, /photos/spicy.</div>
+    </footer>
+  </main>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/gallery.js"></script>
+</body>
+</html>

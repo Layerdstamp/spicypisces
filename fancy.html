@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Fancy - Spicy Pisces</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="gallery-page">
+    <header class="gallery-header">
+        <div class="header-content">
+            <a href="index.html" class="back-btn">← back</a>
+            <h1>fancy</h1>
+        </div>
+    </header>
+
+    <main class="gallery-main">
+        <div id="gallery" class="photo-gallery"></div>
+    </main>
+
+    <script src="assets/config.js"></script>
+    <script>
+        // Load fancy gallery
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGallery('fancy');
+        });
+    </script>
+    <script src="assets/gallery.js"></script>
+</body>
+</html>
